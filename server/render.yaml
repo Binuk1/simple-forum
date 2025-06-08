@@ -1,0 +1,16 @@
+# Place this in your BACKEND repo's root
+services:
+  - type: web
+    name: simple-forum-backend  # Customize your service name
+    env: node
+    buildCommand: npm install && npm run build  # Adjust if using TypeScript
+    startCommand: node index.js
+    envVars:
+      - key: PORT
+        value: 5000
+      - key: ALLOWED_ORIGINS
+        value: "https://simple-forum-khaki.vercel.app,http://localhost:3000"  # Add your frontend URLs
+    plan: free  # Upgrade for production
+    secretFiles:
+      - key: serviceAccountKey.json
+        name: serviceAccountKey  # Must match the secret file name in Render's dashboard

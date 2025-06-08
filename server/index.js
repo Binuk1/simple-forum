@@ -10,7 +10,7 @@ const corsOptions = {
   origin: [
     'http://localhost:3000',
     'http://localhost:5000',
-    'simple-forum-khaki.vercel.app',
+    'https://simple-forum-khaki.vercel.app',
     'https://simple-forum.onrender.com'
   ],
   methods: ['GET', 'POST', 'DELETE'],

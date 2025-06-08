@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": { "distDir": "build" }  
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "https://simple-forum-backend.onrender.com/api/$1" 
+    }
+  ],
+  "env": {
+    "REACT_APP_API_URL": "https://simple-forum-backend.onrender.com"
+       }
+}
