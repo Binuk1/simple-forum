@@ -5,7 +5,7 @@ export const assignRole = async (email, role) => {
     // Get the current user's token (must be an admin!)
     const token = await auth.currentUser.getIdToken();
 
-    const response = await fetch('http://localhost:5000/api/assign-role', {
+    const response = await fetch('https://simple-forum.onrender.com:5000/api/assign-role', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

@@ -5,9 +5,14 @@ const admin = require('firebase-admin');
 const app = express();
 app.use(express.json());
 
-// ✅ Allow frontend from mobile or localhost
+// ✅ Allow frontend from multiple origins
 const corsOptions = {
-  origin: ['http://localhost:3000', 'http://172.20.10.4:3000'],
+  origin: [
+    'http://localhost:3000',
+    'http://localhost:5000',
+    'simple-forum-khaki.vercel.app',
+    'https://simple-forum.onrender.com'
+  ],
   methods: ['GET', 'POST', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
@@ -15,7 +20,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 // ✅ Firebase Admin Init
-const serviceAccount = require('./serviceAccountKey.json');
+const serviceAccount = require('/etc/secrets/serviceAccountKey.json');
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
 });
