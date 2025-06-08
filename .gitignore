@@ -11,3 +11,7 @@ dist/
 
 # logs
 *.log
+# dev firbase tools
+.firebaserc
+firebase.json
+service-account-key.json
